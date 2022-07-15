@@ -1,6 +1,6 @@
 {
-  "name": "hbase",
-  "version": "0.6.1",
+  "name": "@tg1518/hbase",
+  "version": "0.6.2",
   "description": "HBase client using the REST connector",
   "author": "David Worms <david@adaltas.com> (https://www.adaltas.com)",
   "license": "MIT",
@@ -46,9 +46,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adaltas/node-hbase.git"
+    "url": "https://github.com/1518751112/node-hbase.git"
   },
-  "homepage": "https://github.com/adaltas/node-hbase",
+  "homepage": "https://github.com/1518751112/node-hbase",
   "mocha": {
     "throw-deprecation": true,
     "require": [

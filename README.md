@@ -19,6 +19,7 @@ Client features include:
 *   Transparent encoding/decoding of values
 *   Scanner and filter support implementing the `stream.Readable` API
 *   Kerberos Support
+*   新增命名空间支持
 
 ## About HBase
 
@@ -31,9 +32,9 @@ after Google papers and its BigTable database.
 From your project directoy, via [npm](http://github.com/isaacs/npm):
 
 ```bash
-npm install hbase
+npm install @tg1518/hbase
 # Or without the krb5 optional dependency
-npm install hbase --no-optional
+npm install @tg1518/hbase --no-optional
 ```
 
 ## Documentation
@@ -50,6 +51,10 @@ npm install hbase --no-optional
   Retrieve multiple rows and columns
 * [Table](https://hbase.js.org/api/table/)   
   Create, modify and delete HBase tables
+* [REST_API](https://hbase.apachecn.org/#/docs/15)   
+  api使用文档
+* [Stargate Scanner Filter Examples](https://gist.github.com/stelcheck/3979381)   
+  Stargate 扫描仪过滤器示例
 
 ## Quick example
 
@@ -140,6 +145,56 @@ hbase({
 .version();
 ```
 
+## 命名空间
+
+```bash
+
+//获取所有命名空间列表
+client.spaces((error, version) => {
+    console.info(version)
+})
+
+//移除指定命名空间 [注意：该命名空间下不能存在表,需要先删除表]
+client.removeSpace("test",(error, version) => {
+    console.info(error,version)
+})
+
+//创建命名空间
+client.createSpace("test",(error, version) => {
+    console.info(error,version)
+})
+//获取命令空间信息
+client.spaceInfo("test",(error, version) => {
+    console.info(error,version)
+})
+
+//获取指定命令空间下的表列表
+client.spaceTable("test",(error, version) => {
+    console.info(error,version)
+})
+
+//添加指定命令空间下的表
+client.table("test:testT1").update({
+    ColumnSchema: [
+        {
+            name: 'age'
+        },
+        {
+            name: 'name'
+        },
+        {
+            name: 'id'
+        }
+    ]
+},(error, success) => {
+    console.info('Table created: ' + (success ? 'yes' : 'no'))
+    // console.error(error)
+})
+
+
+```
+
+
 ## Scanner and Filters
 
 The scanner implement the `stream.Readable` API. For ease of usage, an optional
@@ -202,6 +257,7 @@ with a scanner request. You will find a lot of examples inside the
 *   Pierre Sauvage: <https://github.com/Pierrotws>
 
 This package is developed by [Adaltas](http://www.adaltas.com).
+原作者git地址 [git](github.com/adaltas/node-hbase).
 
 [ryba]: https://github.com/ryba-io/ryba
 [scanner]: https://github.com/adaltas/node-hbase/blob/master/test/scanner.coffee

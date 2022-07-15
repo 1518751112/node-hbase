@@ -80,6 +80,35 @@ declare namespace hbase {
          * @param callback
          */
         tables(callback: CallbackType): void;
+        /**
+         * 获取命令空间列表
+         * @param callback
+         */
+        spaces(callback: CallbackType): void;
+        /**
+         * 创建命令空间
+         * @param name 命令空间名称
+         * @param callback
+         */
+        createSpace(name:string,callback: CallbackType): void;
+        /**
+         * 获取命令空间信息
+         * @param name 命令空间名称
+         * @param callback
+         */
+        spaceInfo(name:string,callback: CallbackType): void;
+        /**
+         * 获取指定命令空间下的表列表
+         * @param name 命令空间名称
+         * @param callback
+         */
+        spaceTable(name:string,callback: CallbackType): void;
+        /**
+         * 移除命令空间 命名空间下不能有表
+         * @param name 命令空间名称
+         * @param callback
+         */
+        removeSpace(name:string,callback: CallbackType): void;
 
         /**
          * Query Software Version.

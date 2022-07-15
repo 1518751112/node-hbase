@@ -1,6 +1,6 @@
 {
   "name": "@tg1518/hbase",
-  "version": "0.6.2",
+  "version": "0.6.21",
   "description": "HBase client using the REST connector",
   "author": "David Worms <david@adaltas.com> (https://www.adaltas.com)",
   "license": "MIT",

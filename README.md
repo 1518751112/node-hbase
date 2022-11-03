@@ -163,17 +163,17 @@ client.removeSpace("test",(error, version) => {
 client.createSpace("test",(error, version) => {
     console.info(error,version)
 })
-//获取命令空间信息
+//获取命名空间信息
 client.spaceInfo("test",(error, version) => {
     console.info(error,version)
 })
 
-//获取指定命令空间下的表列表
+//获取指定命名空间下的列表
 client.spaceTable("test",(error, version) => {
     console.info(error,version)
 })
 
-//添加指定命令空间下的表
+//添加指定命名空间下的表
 client.table("test:testT1").update({
     ColumnSchema: [
         {
